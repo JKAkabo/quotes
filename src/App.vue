@@ -49,7 +49,7 @@ div {
     box-sizing: border-box;
 }
 .wrapper {
-    height: 100vh;
+    min-height: 100vh;
     background-size: cover;
     display: flex;
     flex-direction: column;
@@ -57,7 +57,7 @@ div {
     align-items: center;
     color: white;
     text-shadow: 0 0 4px black;
-    font-size: 75px;
+    font-size: 10vw;
     font-weight: bold;
     text-align: center;
 }
