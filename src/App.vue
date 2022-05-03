@@ -15,7 +15,7 @@ export default {
             return {content: json.content, author: json.author};
         },
         async getRandomBackground() {
-            const response = await fetch('https://api.pexels.com/v1/curated?per_page=1', {
+            const response = await fetch(`https://api.pexels.com/v1/curated?per_page=1&page=${(Math.random() * 10) + 1}`, {
                 headers: {
                     'Authorization': '563492ad6f9170000100000116c8c28b372747eab3379eacf4c6e8ff'
                 }
