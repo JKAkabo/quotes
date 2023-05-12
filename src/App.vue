@@ -1,7 +1,10 @@
 <script>
 export default {
     data: () => ({
-        background: '',
+        background: {
+            thumbnail: '',
+            original: '',
+        },
         quote: {
             content: '',
             author: ''
@@ -21,7 +24,7 @@ export default {
                 }
             });
             const json = await response.json();
-            return json.photos[0].src.original;
+            return {thumbnail: json.photos[0].src.tiny, original: json.photos[0].src.original};
         }
     },
     async mounted() {
@@ -34,7 +37,7 @@ export default {
 </script>
 
 <template>
-    <div class="wrapper" :style="{'background-image': `url(${background})`}" v-if="!loading">
+    <div class="wrapper" :style="{'background-image': `url(${background.thumbnail})`}" v-if="!loading">
         <div class="content">{{quote.content}}</div>
         <div class="author">- {{quote.author}}</div>
     </div>
@@ -57,7 +60,7 @@ div {
     align-items: center;
     color: white;
     text-shadow: 0 0 4px black;
-    font-size: 10vw;
+    font-size: calc(15vh);
     font-weight: bold;
     text-align: center;
 }
